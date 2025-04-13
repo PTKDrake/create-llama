@@ -258,7 +258,7 @@ export const askProQuestions = async (program: QuestionArgs) => {
     program.vectorDb = vectorDb;
   }
 
-  if (program.vectorDb === "llamacloud" && program.dataSources.length === 0) {
+  if (program.vectorDb === "llamacloud" && (!program.dataSources || program.dataSources.length === 0)) {
     // When using a LlamaCloud index and no data sources are provided, just copy an example file
     program.dataSources = [EXAMPLE_FILE];
   }
